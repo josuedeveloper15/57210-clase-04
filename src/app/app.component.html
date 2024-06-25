@@ -102,18 +102,52 @@
 
 <!-- Angular 17 en adelante -->
 
-@switch (estadoPago) {
-  @case (estadoPagoEnum.Aceptado) {
-    <p>Su pago ha sido aceptado</p>
-  }
-  @case (estadoPagoEnum.Rechazado) {
-    <p>Su pago ha sido rechazado</p>
-  }
-  @case (estadoPagoEnum.Pendiente) {
-    <p>Su pago esta pendiente</p>
-  }
+@switch (estadoPago) { @case (estadoPagoEnum.Aceptado) {
+<p>Su pago ha sido aceptado</p>
+} @case (estadoPagoEnum.Rechazado) {
+<p>Su pago ha sido rechazado</p>
+} @case (estadoPagoEnum.Pendiente) {
+<p>Su pago esta pendiente</p>
+} @default {
+<p>Su pago tiene un estado desconocido</p>
+} }
 
-  @default {
-    <p>Su pago tiene un estado desconocido</p>
-  }
-}
+<hr />
+
+<h2>Binding</h2>
+
+<input [(ngModel)]="loginForm.password" [type]="inputType" />
+<button (click)="alternarTipo()">Text/Password</button>
+<pre>{{ loginForm | json }}</pre>
+
+<!--
+[] ====> Pasando informacion desde el padre al hijo
+() ====> El elemento hijo notificando al padre de algun evento
+[()] =====> Enlazamiento de doble via
+-->
+
+<hr />
+
+<h2>Pipes</h2>
+
+<p>Nombre: {{ nombreUsuario | uppercase }}</p>
+<p>Sueldo: {{ sueldo | currency : "ARS" }}</p>
+<p>Fecha nacimiento: {{ fechaNacimiento | date : "long" }}</p>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
